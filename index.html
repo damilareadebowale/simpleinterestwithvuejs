@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>VueJS Simple Interest Calculator</title>
+</head>
+<body>
+    <div id="">
+        <h1>Simple Interest Calculator</h1>
+
+        <form id="app">
+            <p>
+                <label for="principal">PRINCIPAL</label><br>
+                <input 
+                v-model="principal"
+                type="number"
+                placeholder="Enter principal amount"
+                >
+            </p>
+
+            <p>
+                <label for="rate">RATE</label><br>
+                <input v-model="rate"
+                type="number" 
+                placeholder="Enter the rate"
+                >
+            </p>
+
+            <p>
+                <label for="time">TIME</label><br>
+                <input 
+                v-model="time"
+                type="number"
+                placeholder="Enter the number of years"                
+                >
+            </p>
+
+            <p>
+                Simple Interest equals: {{ total() }}
+            </p>
+        </form>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                    principal: '',
+                    rate: '',
+                    time: ''
+                },
+                methods :{
+                        total: function(){
+                            return (this.principal * this.rate * this.time) / 100
+                            }
+                    }
+                })
+    </script>
+</body>
+</html>
